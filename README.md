@@ -99,7 +99,7 @@ The dataset is comprised of a file sub-directory called ‘Train’ which contai
 The folder directory contained a CSV file named ‘train.csv’ which contained a table with two columns, one with a list of the images by name, and one with a list of category labels of ‘young’, ‘middle’ and ‘old. There were 10804 images belonging to the ‘Middle’ class (54.3%), 6706 images belonging to the ‘young’ class (33.7%), and 2396 images belonging to the ‘Old’ class (12%). 
 <br/>
 <br/>
-<br/>
+
 ### **Methods** <br/>
 
 **Dataset:** <br/>
@@ -121,7 +121,6 @@ Once the Graphical User Interface (GUI) of the app had been designed, deployment
 The callable function in the notebook produced for this report, allowed for connectivity to the server, to be able to implement the created and tested CNN Model that was then saved for use. The connectivity to the serve for the GUI to function linked using and uplink connection to anvil using the Anvil.Server module, and then passed the callable function definition which defined what model to use with images passed and how to handle images passed.<br/>
 
 Once deployed (using publishing in Anvil), a public set URL for the published Anvil app was generated so that users can access the web application through this URL. This enabled users to now interact with the CNN model through the web app. They can input data, trigger predictions, and visualize the results in the GUI.
-<br/>
 <br/>
 <br/>
 
@@ -149,16 +148,14 @@ Augmentation introduces variability in the training data, resulting in a lower i
 Utilizing bounding box information yields a comparable initial accuracy of around 62.5% compared to the no pre-processing case. The model continues to learn effectively, reaching approximately 93.4% accuracy by the tenth epoch. This suggests that incorporating bounding box information positively influences the model's learning process. The model incorporating bounding box information follows a decreasing loss trend, starting at 0.8327 and reaching 0.1887 by the tenth epoch. This pattern indicates that incorporating bounding box information enhances the model's ability to achieve a lower loss over the training period. 
 <br/>
 <br/>
-<br/>
- 
+
 ### **Conclusion** <br/>
 The model with no pre-processing achieves the highest accuracy, but it might benefit from additional techniques or adjustments to reach even higher performance. The augmented model, while starting with lower accuracy, shows improvement and might generalize better to unseen data due to data augmentation. However, there was not a significant improvement seen in the augmented model in comparison to the model without augmentation. On the other hand, the model with bounding boxes performs well, leveraging additional spatial information. It achieves high accuracy and a relatively low loss, indicating the effectiveness of incorporating bounding box data. This model suggested improved slightly in accuracy.
 
 While data augmentation is generally beneficial for training robust models, there are scenarios where certain augmentation techniques might not improve or could potentially decrease model accuracy. On the other hand, augmentations simulate real-world conditions, helping the model be more adaptable to challenges it may face. Providing multiple techniques allows the model to be trained on a wider variety of data, resulting in a more diversified dataset for better generalization to unseen data. As suggested in the results of the model run with no augmentation or pre-processing techniques, the model indicated generalising well to unseen data before any experimentation with other augmentation techniques or implementation of bounding boxes. Bounding boxes can be applied to a wide range of object types, including people, animals, vehicles, and more. They are versatile and can be used in both single-object and multi-object scenarios, which would be useful in imagery examples that include more than one person in real-world settings. However, Irregularly shaped objects may have a significant portion of the bounding box containing non-object regions and in cases where objects are close or overlapping, bounding boxes may overlap, leading to challenges in determining the precise boundaries of individual objects.
 In summary, each pre-processing approach influences the model's performance differently. While augmentation introduces diversity at the expense of initial accuracy, bounding box information proves beneficial in enhancing both accuracy and the model's ability to minimize loss over successive epochs. The choice of pre-processing strategy should be carefully considered based on the specific requirements and characteristics of the given task. 
 <br/>
-
-
+<br/>
 
 ### **Recommendations** <br/>
 The model with implemented bounding boxes is recommended for its higher accuracy and better generalization, especially if the dataset is limited. However, this can also depend on the dataset and the model architecture. For future recommendations, it’s always good practice to validate conclusions through multiple experiments and datasets. As Bounding boxes do not provide detailed information about the interior structure of objects and focus on specifying a bounding region, there can be loss of fine-grained information. For more advanced applications, techniques like instance segmentation or keypoints estimation may be considered.
